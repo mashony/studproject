@@ -60,6 +60,7 @@ def stud_add(request):
     st.save()
     return HttpResponseRedirect("/students")
 
+
 def stud_edit(request,stud_id):
     try:
         date = datetime.strptime(request.POST["date_of_birth"],"%d.%m.%Y")
