@@ -1,0 +1,20 @@
+{% extends "base1.html" %}
+
+{% block body %}
+    <form action="/edit/student/{{ student.id }}" method="POST">{% csrf_token %}
+        <p><input name="first_name" type="text" value="{{ student.first_name }}" size="40"/></p>
+        <p><input name="second_name" type="text"  value="{{ student.second_name }}" size="40"/></p>
+        <p><input name="patronymic" type="text" value="{{ student.patronymic }}" size="40"/></p>
+        <p><input name="date_of_birth" type="text"  value="{{ student.date_of_birth|date:"d.m.Y" }}" size="40"/></p>
+        <p>Выберите группу: <select size="1" name="group">
+            {% for group in group_list %}
+                {% if group.name == student.group  %}
+                    <option value="{{ group.id }}" selected>{{ group.name }}</option>
+                {% else %}
+                    <option value="{{ group.id }}">{{ group.name }}</option>
+                {% endif %}
+            {% endfor %}
+        </select></p>
+        <input type="submit" value="Изменить" />
+    </form>
+{%  endblock %}

@@ -1,0 +1,14 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>{% block title %}BASE{% endblock %}</title>
+    {% block links %}{% endblock %}
+    {% block script %}{% endblock %}
+</head>
+<body>
+<div class='header'>{% block header %}<p>HEAD</p>{% endblock %}</div>
+<div class='body'>{% block body %}<p>BASE BODY</p>{% endblock %}</div>
+<div class='footer'>{% block footer %}<p>FOOT</p>{% endblock %}</div>
+</body>
+</html>

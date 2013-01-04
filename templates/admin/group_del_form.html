@@ -1,0 +1,7 @@
+{% extends "base1.html" %}
+
+{% block body %}
+        <p>Do you really want delete group <b>{{ group.name }}</b>?</p>
+        <a href="/group/{{ group.id }}/delete/success"><button>Delete!</button></a>
+        <a href="/groups"><button>Return</button></a>
+{% endblock %}

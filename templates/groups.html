@@ -1,0 +1,34 @@
+{% extends "base1.html" %}
+{% block body %}
+    <table id="groupstable" width="60%" border="1" cellspacing="0" cellpadding="4">
+        <thead>
+            <tr align="center">
+                <td>ИД группы</td>
+                <td>Название</td>
+                <td>Староста</td>
+                <td>Кол-во студентов</td>
+                <td>Админ</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for group in groups_list %}
+            <tr>
+                <td>{{group.id}}</td>
+                <td><a href="/group/{{ group.id }}">{{group.name}}</a></td>
+                {% if group.warden == None %}
+                <td><b style="color:red">Добавьте старосту!</b></td>
+                {% else %}
+                <td><a href="/student/{{ group.warden.id }}">{{group.warden}}</a></td>
+                {% endif %}
+                <td>   </td>
+                <td><a href="/group/{{ group.id }}/edit">Редактировать</a> <a href="/group/{{ group.id }}/delete">Удалить</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="/group/add">Добавить группу</a>
+{% endblock %}
+
+{% block footer %}
+    <p><a href="/students">Студенты</a></p>
+{% endblock %}

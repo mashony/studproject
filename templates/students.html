@@ -1,0 +1,35 @@
+{% extends "base1.html" %}
+{% block body %}
+    {% if stud_list.count > 0 %}
+    <table id="studstable" width="60%" border="1" cellspacing="0" cellpadding="4">
+        <thead>
+        <tr align="center">
+            <td>№ билета</td>
+            <td>ФИО</td>
+            <td>Дата рождения</td>
+            <td>Группа</td>
+            <td>Админ</td>
+        </tr>
+        </thead>
+        <tbody>
+
+        {% for stud in stud_list %}
+            <tr>
+                <td>{{stud.id}}</td>
+                <td><a href="/student/{{ stud.id }}">{{stud.second_name}} {{stud.first_name}} {{stud.patronymic}}</a></td>
+                <td>{{stud.date_of_birth|date:"d/m/Y"}}</td>
+                <td><a href="/group/{{ stud.group.id }}">{{stud.group}}</a></td>
+                <td><a href="/editform/student/{{ stud.id }}">Редактировать</a> <a href="/deleteform/student/{{ stud.id }}">Удалить</a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p><b style="color:red">В базе нет студентов!</b></p>
+    {% endif %}
+    <a href="/addform/student">Добавить студента</a>
+{% endblock %}
+
+{% block footer %}
+    <p><a href="/groups">Группы</a></p>
+{% endblock %}

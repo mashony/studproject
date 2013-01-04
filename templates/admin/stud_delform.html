@@ -1,0 +1,10 @@
+{%  extends "base1.html" %}
+{% block body %}
+    <p>Вы серьезно хотите удалить этого студента?</p>
+    <div id="stud_info">
+        <p>ФИО: {{ student.first_name }} {{ student.second_name }} {{ student.patronymic }}</p>
+        <p>Группа: {{ student.group }}</p>
+    </div>
+    <a href="/delete/student/{{ student.id }}"><button>Да!</button></a>
+    <a href="/students"><button>НЕТ!</button></a>
+{% endblock %}
