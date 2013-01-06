@@ -6,7 +6,8 @@ from forms import StudForm,GroupForm
 from datetime import datetime
 
 def index(request):
-    return render_to_response("one.html")
+    return render_to_response("one.html",
+        context_instance=RequestContext(request))
 
 def studs(request):
     return render_to_response("students.html",

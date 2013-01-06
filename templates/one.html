@@ -4,3 +4,10 @@
     <p><a href="/groups">Группы</a></p>
     <p><a href="/email_test">ТЕСТ</a></p>
 {% endblock %}
+
+{% block footer %}
+    <br/>
+    <p><em>TEMPLATE_CONTEXT_PROCESSORS:</em></p>
+    <p><em>settings.TIME_ZONE: </em>{{ settings.TIME_ZONE }}</p>
+    <p><em>settings.TEMPLATE_DIRS: </em>{{ settings.TEMPLATE_DIRS }}</p>
+{% endblock %}
