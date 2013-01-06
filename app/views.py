@@ -1,20 +1,12 @@
-from django.template import Context,loader
 from models import Student,Group,get_students_of_group
-from django.http import HttpResponse,HttpResponseRedirect
+from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from forms import StudForm,GroupForm
 from datetime import datetime
 
-#def index(request):
-#    all_stud_list = Student.objects.all()
-#    t = loader.get_template('templates/students.html')
-#    c = Context({'all_stud_list':all_stud_list})
-#    return HttpResponse(t.render(c))
-
 def index(request):
-    return render_to_response("one.html",
-        context_instance=RequestContext(request))
+    return render_to_response("one.html")
 
 def studs(request):
     return render_to_response("students.html",
@@ -46,7 +38,6 @@ def stud_delform(request,stud_id):
             {'student':Student.objects.get(id=stud_id)})
 
 def stud_add(request):
-
     gr = Group.objects.get(id=request.POST['group'])
     try:
         date = datetime.strptime(request.POST["date_of_birth"],"%d.%m.%Y")

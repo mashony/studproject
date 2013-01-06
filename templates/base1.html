@@ -7,7 +7,15 @@
     {% block script %}{% endblock %}
 </head>
 <body>
-<div class='header'>{% block header %}<p>HEAD</p>{% endblock %}</div>
+<div class='header'>
+    {% block auth %}
+        <div id="auth" style="float:right">
+            <a href="/login?next={{request.path}}">Login</a> or
+            <a href="/singup">Sing up</a>
+        </div>
+    {% endblock %}
+    {% block header %}<p>HEAD</p>{% endblock %}
+</div>
 <div class='body'>{% block body %}<p>BASE BODY</p>{% endblock %}</div>
 <div class='footer'>{% block footer %}<p>FOOT</p>{% endblock %}</div>
 </body>

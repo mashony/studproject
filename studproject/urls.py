@@ -1,7 +1,7 @@
 from django.conf.urls import patterns, include
 from django.contrib import admin
 admin.autodiscover()
-
+from django.contrib.auth.views import login,logout
 from django.conf import settings
 
 urlpatterns = patterns('app.views',
@@ -30,6 +30,15 @@ urlpatterns = patterns('app.views',
     (r'^admin/', include(admin.site.urls)),
 )
 
+urlpatterns += patterns('app.auth.views',
+    (r"^login$", "login"),
+    (r"^logout$", "logout"),
+    (r"^changepass$", "change_password"),
+    (r"^useredit$","edit_user"),
+    (r"^singup$","sing_up"),
+    (r'^activateprofile/(?P<activation_key>\w+)/$',"activate"),
+    (r"^email_test$","email_send_test"),
+)
 #if settings.DEBUG:
 #    urlpatterns+= patterns('',
 #        (r'media/(?P<path>.*)$', 'django.views.static.serve', {'document_root':'./media/'}),

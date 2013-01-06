@@ -1,9 +1,13 @@
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
-ADMINS = (
-    # ('Your Name', 'your_email@example.com'),
-)
+ADMINS = ( ('maderik', 'maderik@example.com'),)
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'ideanarium@gmail.com'
+EMAIL_HOST_PASSWORD = 'qs#mKz}k(FYCs0#'
+EMAIL_USE_TLS = True
 
 MANAGERS = ADMINS
 
@@ -80,7 +84,9 @@ INSTALLED_APPS = (
 
     'django.contrib.admin',
     'django.contrib.admindocs',
+
     'app',
+    'app.auth',
 )
 
 LOGGING = {

@@ -1,0 +1,9 @@
+{% extends "base1.html" %}
+
+{% block body %}
+    {% if error != None %}
+        <h3>{{ error }}</h3>
+    {% else %}
+        <h3>There isn't error</h3>
+    {% endif %}
+{%  endblock %}
