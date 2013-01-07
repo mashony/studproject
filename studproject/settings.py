@@ -119,7 +119,7 @@ LOGGING = {
 }
 
 TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + \
-                        ("studproject.utils.context_processors.settings_context",)
+                ("studproject.utils.context_processors.settings_context",)
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587

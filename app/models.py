@@ -19,5 +19,10 @@ class Student(models.Model):
         return "%s %s" % (self.second_name,self.first_name)
 
 def get_students_of_group(group_id):
-    return Student.objects.get_query_set().filter(group_id__exact=group_id)
+    try:
+        students =  Student.objects.get_query_set().filter(group_id__exact=group_id)
+    except Student.DoesNotExist:
+        return None
+    return students
+
 
