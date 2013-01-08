@@ -18,7 +18,6 @@ class SQLLogMiddleware(object):
         content = t.render(Context({'sqllog':connection.queries,
                                 'count':len(connection.queries),
                                 'time':time})).encode('utf-8')
-        print content
         response.content = response.content.replace('</body>',
             content + '</body>')
         return response

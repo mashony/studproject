@@ -6,7 +6,6 @@
                 <td>ИД группы</td>
                 <td>Название</td>
                 <td>Староста</td>
-                <td>Кол-во студентов</td>
                 <td>Админ</td>
             </tr>
         </thead>
@@ -18,9 +17,8 @@
                 {% if group.warden == None %}
                 <td><b style="color:red">Добавьте старосту!</b></td>
                 {% else %}
-                <td><a href="/student/{{ group.warden.id }}">{{group.warden}}</a></td>
+                <td>{{group.warden}}</td>
                 {% endif %}
-                <td>   </td>
                 <td><a href="/group/{{ group.id }}/edit">Редактировать</a> <a href="/group/{{ group.id }}/delete">Удалить</a></td>
             </tr>
             {% endfor %}

@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
         "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 <head>
     <title>{% block title %}BASE{% endblock %}</title>
     {% block links %}{% endblock %}
@@ -10,8 +10,13 @@
 <div class='header'>
     {% block auth %}
         <div id="auth" style="float:right">
-            <a href="/login?next={{request.path}}">Login</a> or
-            <a href="/singup">Sing up</a>
+            {% if user.is_authenticated %}
+                Hi, {{ user.username }}!<br/>
+                <a href="/logout">Logout</a>
+            {% else %}
+                <a href="/login">Login</a> or
+                <a href="/singup">Sing up</a>
+            {% endif %}
         </div>
     {% endblock %}
     {% block header %}<p>HEAD</p>{% endblock %}

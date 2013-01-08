@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.contenttypes.models import ContentType
 
 class Group(models.Model):
     name = models.CharField(max_length=15,unique=True)
@@ -25,4 +26,21 @@ def get_students_of_group(group_id):
         return None
     return students
 
+def save_handler(sender, **kwargs):
+    print "PreSave " + sender.__name__
+def delete_handler(sender, **kwargs):
+    print "PreDelete"
 
+
+def find_models():
+    models = []
+    for ct in ContentType.objects.all():
+        if ct.model_class().__module__ in ['app.auth.models',
+                                           'django.contrib.auth.models',
+                                           'app.models']:
+            models.append(ct.model_class())
+    return models
+
+for model in find_models():
+    models.signals.post_save.connect(save_handler,sender=model)
+    models.signals.pre_delete.connect(delete_handler,sender=model)

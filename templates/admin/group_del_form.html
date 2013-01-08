@@ -1,7 +1,9 @@
 {% extends "base1.html" %}
 
 {% block body %}
+    <form action="#" method="POST">{% csrf_token %}
         <p>Do you really want delete group <b>{{ group.name }}</b>?</p>
-        <a href="/group/{{ group.id }}/delete/success"><button>Delete!</button></a>
+        <input type="submit" value="Yes" />
         <a href="/groups"><button>Return</button></a>
+    </form>
 {% endblock %}

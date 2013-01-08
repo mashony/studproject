@@ -1,7 +1,7 @@
 {% extends "base1.html" %}
 
 {% block body %}
-    <form action="/group/{{ group.id }}/edit/success" method="post">{% csrf_token %}
+    <form action="#" method="post">{% csrf_token %}
         <p><input name="name" type="text" value="{{ group.name }}" size="40"/></p>
         <p>Выберите старосту: <select size="1" name="warden">
             {% for student in stud_list %}

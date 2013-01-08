@@ -1,7 +1,7 @@
 {% extends "base1.html" %}
 
 {% block body %}
-    <form action="/edit/student/{{ student.id }}" method="POST">{% csrf_token %}
+    <form action="#" method="POST">{% csrf_token %}
         <p><input name="first_name" type="text" value="{{ student.first_name }}" size="40"/></p>
         <p><input name="second_name" type="text"  value="{{ student.second_name }}" size="40"/></p>
         <p><input name="patronymic" type="text" value="{{ student.patronymic }}" size="40"/></p>

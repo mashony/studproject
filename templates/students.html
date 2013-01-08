@@ -16,10 +16,10 @@
         {% for stud in stud_list %}
             <tr>
                 <td>{{stud.id}}</td>
-                <td><a href="/student/{{ stud.id }}">{{stud.second_name}} {{stud.first_name}} {{stud.patronymic}}</a></td>
+                <td>{{stud.second_name}} {{stud.first_name}} {{stud.patronymic}}</td>
                 <td>{{stud.date_of_birth|date:"d/m/Y"}}</td>
-                <td><a href="/group/{{ stud.group.id }}">{{stud.group}}</a></td>
-                <td><a href="/editform/student/{{ stud.id }}">Редактировать</a> <a href="/deleteform/student/{{ stud.id }}">Удалить</a></td>
+                <td><a href="/group/{{ stud.group.id }}/students">{{stud.group}}</a></td>
+                <td><a href="/student/{{ stud.id }}/edit">Редактировать</a> <a href="/student/{{ stud.id }}/delete">Удалить</a></td>
             </tr>
         {% endfor %}
         </tbody>
@@ -27,7 +27,7 @@
     {% else %}
     <p><b style="color:red">В базе нет студентов!</b></p>
     {% endif %}
-    <a href="/addform/student">Добавить студента</a>
+    <a href="/student/add">Добавить студента</a>
 {% endblock %}
 
 {% block footer %}
